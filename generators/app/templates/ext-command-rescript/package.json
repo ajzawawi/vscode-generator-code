@@ -1,0 +1,33 @@
+{
+    "name": <%- JSON.stringify(name) %>,
+    "displayName": <%- JSON.stringify(displayName) %>,
+    "description": <%- JSON.stringify(description) %>,
+    "version": "0.0.1",
+    "engines": {
+        "vscode": <%- JSON.stringify(vsCodeEngine) %>
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        <%- JSON.stringify(`onCommand:${name}.helloWorld`) %>
+    ],
+    "main": "./out/extension.bs.js",
+    "contributes": {
+        "commands": [{
+            "command": <%- JSON.stringify(`${name}.helloWorld`) %>,
+            "title": "Hello World"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "<%= pkgManager %> run build",
+        "build": "bsb -make-world",
+        "clean": "bsb -clean-world",
+        "watch": "bsb -make-world -w",
+        "pretest": "<%= pkgManager %> run build",
+        "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+        <%- dep("bs-platform") %>
+    }
+}

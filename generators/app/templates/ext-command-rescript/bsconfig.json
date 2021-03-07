@@ -1,0 +1,16 @@
+{
+    "$schema": "https://raw.githubusercontent.com/rescript-lang/rescript-compiler/master/docs/docson/build-schema.json",
+    "name": <%- JSON.stringify(name) %>,
+    "bsc-flags": ["-bs-super-errors"],
+    "sources": [{
+        "dir": "src",
+        "subdirs": true
+    }],
+    "package-specs": [{
+        "module": "es6",
+        "in-source": true
+    }],
+    "namespace": true,
+    "bs-dependencies": [],
+    "refmt": 3
+}
